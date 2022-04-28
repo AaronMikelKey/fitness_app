@@ -10,6 +10,20 @@ var usersRouter = require('./routes/users');
 var app = express();
 app.use(cors());
 
+//Set up mongoose connection
+var mongoose = require('mongoose');
+
+/*
+
+!!!!!!No DB set up yet, still need to add!!!!!!!!
+
+const mongoDB = process.env.Mongo_DB;
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
+*/
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
