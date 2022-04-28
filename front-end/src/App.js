@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
 
+	//fetch home page (index).  Change to server url when live
 	fetch('https://localhost:3001/users')
 	.then(response => response.text())
 	.then(data => console.log({data}));
