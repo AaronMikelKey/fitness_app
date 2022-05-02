@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
+const entries = require('../controllers/entriesController')
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Fitness App' });
+router.get('/', (req, res) => {
+	res.redirect('/api');
 });
+
+
+router.get('/api', entries.index)
 
 module.exports = router;
