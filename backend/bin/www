@@ -9,6 +9,10 @@ var debug = require('debug')('backend:server');
 var http = require('http');
 var https = require('https');
 var fs = require('fs');
+/* 
+
+Ubuntu setup for now.  Will need to replace this and Mac one when moved to prod
+
 const key = fs.readFileSync('../../../key.pem');
 const cert = fs.readFileSync('../../../cert.pem');
 
@@ -19,11 +23,15 @@ const cert = fs.readFileSync('../../../cert.pem');
 var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
-/**
- * Create HTTP server.
+/*
+ Create server.
  */
 
-var server = https.createServer({key: key, cert: cert}, app);
+ //https server
+//const server = https.createServer({key: key, cert: cert}, app);
+
+//http server DEV ONLY
+var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.

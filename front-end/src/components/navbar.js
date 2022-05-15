@@ -10,8 +10,8 @@ const LoggedIn = (props) => {
 	else {
 		return (
 			<div className='buttons'>
-				<a href='/' className='button'>Sign up</a>
-				<a href='/' className='button'>Log in</a>
+				<a href='/signup' className='button'>Sign up</a>
+				<a href='/login' className='button'>Log in</a>
 			</div>
 		)
 	}
@@ -21,21 +21,10 @@ const Navbar = () => {
   return (
     <nav className='nav'>
       <ul>
-				
-        {/*
-				Need to change App.js to handle routes before implementing navlinks
-
-				<NavLink exact to='/' ><li className='nav1'>Home</li></NavLink>
-        <NavLink to='/' ><li className='nav2'>About</li></NavLink>
-        <NavLink to='/' ><li className='nav3'>Workouts</li></NavLink>
-        <NavLink to='/' ><li className='nav4'>Meals</li></NavLink>
-	*/}
-
-	{/* Placeholder links */}
-	<a href='/'>Home</a>
-	<a href='/'>About</a>
-	<a href='/'>Workouts</a>
-	<a href='/'>Meals</a>
+				<NavLink to='/' ><li className='nav1'>Home</li></NavLink>
+        <NavLink to='/about' ><li className='nav2'>About</li></NavLink>
+        <NavLink to='/workouts' ><li className='nav3'>Workouts</li></NavLink>
+        <NavLink to='/meals' ><li className='nav4'>Meals</li></NavLink>
 				<LoggedIn />
       </ul>
     </nav>

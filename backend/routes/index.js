@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const entries = require('../controllers/entriesController')
+const entriesController = require('../controllers/entriesController')
 
 
 /* GET home page. */
@@ -9,6 +9,6 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/api', entries.index)
+router.get('/api', entriesController.index)
 
 module.exports = router;
