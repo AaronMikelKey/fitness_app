@@ -5,7 +5,8 @@ const entriesController = require('../controllers/entriesController')
 
 /* GET home page. */
 router.get('/', (req, res) => {
-	res.redirect('/api');
+	console.log('Redirecting...')
+	res.redirect(302 ,'/api');
 });
 
 

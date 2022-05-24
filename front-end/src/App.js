@@ -1,30 +1,54 @@
 import './App.css';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 
 
 const App = (props) => {
 	
-	const [title, setTitle] = useState('Fitness App');
-	const [content, setContent] = useState('A fitness tracking app.  You can use this to keep track of your daily excercises and meals.')
-	
+	const [data, setData] = useState({header : 'Fitness App', body : ''})
 
-	//fetch home page (index).  Change to server url when live
-	fetch('http://localhost:3001/')
-	.then(response => console.log('Response: ', response))
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const result = await fetch('http://localhost3001')
+				const body = await result.json()
+				console.log('Response: '+ body)
+				setData(body)
+				} catch(err) {
+					setData(err)
+			}
+		}
+		fetchData()
+		console.log(data)
+	}, [])
 
-  return (
+return (data.body ? 
+
+	(
     <div className="App">
 			<Navbar />
       <header className="App-header">
-        <h1>{title}</h1>
-				<p>{content}</p>
+        <h1>{data.header}</h1>
+				<p>{data.body}</p>
       </header>
 			<Footer />
     </div>
-  );
+  )
+	:
+
+		(<div className="App">
+			<Navbar />
+      <header className="App-header">
+				<p>Loading...</p>
+      </header>
+			<Footer />
+    </div>
+  )
+	
+	)
+
 }
 
 export default App;
